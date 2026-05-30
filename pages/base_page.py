@@ -55,8 +55,6 @@ class BasePage:
     
     @allure.step('Сравниваем url открытой страницы с {url}')
     def check_page(self, url):
-        print(f'url: {url}')
-        print(f'current_url: {self.driver.current_url}')
         self.wait.until(
             expected_conditions.url_to_be(url)
         )        
@@ -65,7 +63,6 @@ class BasePage:
     @allure.step('Получаем открытые окна')
     def get_open_window(self):
         current_windows = self.driver.window_handles
-        print(f'open_windows:{current_windows}')
         return current_windows      
 
     @allure.step('Переключаемся в новое окно')
